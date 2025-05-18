@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippine Women's University | Sta. Cruz Campus</title>
+    <meta name="description" content="Official website of Philippine Women's University Sta. Cruz Campus. Learn about our programs, strands, campuses, and academic calendar.">
+    <meta name="keywords" content="PWU, Philippine Women's University, Sta. Cruz, Campus, Strands, Academic Programs, Senior High School, College, Laguna">
+    <meta name="author" content="Philippine Women's University ">
+    <meta property="og:title" content="Philippine Women's University | Sta. Cruz Campus">
+    <meta property="og:description" content="Explore the programs, strands, and campus life at PWU Sta. Cruz.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:image" content="https://yourdomain.com/imagepwulogo.jpg">-
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #222;
+        }
+        header {
+            text-align: center;
+            padding: 1rem 0;
+            background: #8b1722; /* Updated to requested color */
+            color: #fff;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: #8b1722;
+        }
+        nav ul li {
+            margin: 0.5rem 1rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        #menu-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        button, .tab-button, .responsive-btn {
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            background: #8b1722; /* Updated to requested color */
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1rem;
+            min-width: 120px;
+            min-height: 40px;
+            color: #fff;
+            transition: background 0.2s, color 0.2s;
+        }
+        button:hover, .tab-button:hover, .responsive-btn:hover {
+            background: #990033;
+            color: #fff;
+        }
+        .tab-button.active {
+            background: #8b1722;
+            color: #fff;
+        }
+        .tab-content {
+            display: none;
+            max-width: 600px;
+            margin: 1rem auto;
+            background: #fafafa;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .tab-content.active {
+            display: block !important;
+            animation: fadeIn 1.2s;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        #strand-container.show {
+            display: block !important;
+        }
+        #strand-container {
+            margin: 1rem auto;
+            max-width: 700px;
+            width: 95vw;
+            background: #ffffff;
+            border: 2px solid #b61616;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 1.5rem 1rem;
+            box-sizing: border-box;
+            word-break: break-word;
+        }
+        .strand-offers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .strand-offers > div {
+            flex: 1 1 200px;
+            background: #f5f5f5;
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+        #strand-container section#abm {
+            background: #e3f2fd; /* Light blue for ABM */
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            animation: fadeIn 1.2s;
+        }
+        #strand-container section#stem {
+            background: #e8f5e9; /* Light green for STEM */
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            animation: fadeIn 1.2s;
+        }
+        #strand-container section#humss {
+            background: #fff3e0; /* Light orange for HUMSS */
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            animation: fadeIn 0.8s;
+        }
+        #strand-container section#gas {
+            background: #ede7f6; /* Light purple for GAS */
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            animation: fadeIn 0.8s;
+        }
+        #strand-container section#tvl {
+            background: #fce4ec; /* Light pink for TVL */
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            animation: fadeIn 0.8s;
+        }
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        th {
+            background: #673ab7;
+            color: #fff;
+        }
+        #academic-calendar th {
+            background: #8b1722; /* Use your preferred dark color */
+            color: #fff;
+            border: 1px solid #992020;
+            padding: 10px;
+        }
+        @media (max-width: 700px) {
+            .strand-offers {
+                flex-direction: column;
+            }
+            .tab-content {
+                padding: 0.5rem;
+                font-size: 1em;
+            }
+            h1, h2, h3 {
+                font-size: 1.1em;
+            }
+            button, .tab-button, .responsive-btn {
+                font-size: 1.1em;
+                min-width: 90vw;
+                min-height: 44px;
+                margin: 0.3rem 0;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                width: 100%;
+                border-bottom: 1px solid #ccc; /* Line below each menu item */
+                margin: 0;
+                padding: 0;
+            }
+            nav ul li:last-child {
+                border-bottom: none; /* Remove line after last item */
+            }
+            nav ul li a {
+                display: block;
+                width: 100%;
+                padding: 1rem 0.5rem;
+                text-align: center; /* Center the text */
+            }
+            #strand-container {
+                /* Hide by default on mobile */
+                display: none !important;
+                padding: 1rem 0.5rem;
+                max-width: 98vw;
+                font-size: 1em;
+            }
+            #strand-container.show {
+                display: block !important;
+            }
+            #strand-container h2, #strand-container h3, #strand-container h4 {
+                font-size: 1.1em;
+            }
+            #campus-menu {
+                display: block !important;
+                background: #fff;
+                border: 2px solid #990033;
+                border-radius: 24px; /* Make corners much smoother */
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                padding: 1rem;
+                margin: 1rem auto;
+                max-width: 350px;
+                width: 95vw;
+                z-index: 1000;
+                position: relative;
+            }
+            #toggle-campus-menu {
+                display: none !important;
+            }
+            #toggle-campus-menu.responsive-btn {
+                border-radius: 24px; /* Match the campus menu's smooth corners */
+            }
+            #campus-tabs {
+                display: none !important;
+            }
+            .floating-campus-menu {
+                display: flex !important;
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #990033;
+                border-radius: 30px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+                z-index: 2000;
+                padding: 0.5rem 1rem;
+                gap: 1.2rem;
+                align-items: center;
+                animation: fadeIn 1s;
+            }
+            button.responsive-btn,
+            .tab-button.responsive-btn,
+            #toggle-campus-menu.responsive-btn,
+            #toggle-strand-menu.responsive-btn {
+                font-size: 1.25em;           /* Make text a little bigger */
+                font-weight: bold;           /* Highlight the name */
+                background: #fffbe7;         /* Optional: subtle highlight background */
+                color: #8b1722;              /* Optional: highlight text color */
+                border: 2px solid #8b1722;   /* Optional: highlight border */
+                box-shadow: 0 2px 8px rgba(139,23,34,0.08);
+                transition: background 0.2s, color 0.2s;
+            }
+            button.responsive-btn:hover,
+            .tab-button.responsive-btn:hover {
+                background: #ffe0b2;
+                color: #990033;
+            }
+        }
+        /* On desktop: hide strand container, show strand menu button */
+        @media (min-width: 701px) {
+            #strand-container {
+                display: none !important;
+            }
+            #toggle-strand-menu {
+                display: inline-block !important;
+            }
+            #campus-menu {
+                display: none;
+            }
+            #toggle-campus-menu {
+                display: inline-block !important;
+            }
+            .floating-campus-menu {
+                display: none !important;
+            }
+        }
+        /* Fallback for very old browsers */
+        @media screen and (max-width: 400px) {
+            body, table, th, td {
+                font-size: 14px;
+            }
+        }
+        /* Fade-in animation for content */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .fade-in {
+            animation: fadeIn 1.2s;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <h1>Philippine Women's University</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact" onclick="event.preventDefault(); showContactSection();">Contact</a></li>
+            
+        </ul>
+    </nav>
+    <div id="menu-container">
+        <button id="toggle-strand-menu" class="responsive-btn">Strand Menu</button>
+        <button id="toggle-campus-menu" class="responsive-btn">Campus Menu</button>
+        <button id="toggle-announcements" class="responsive-btn">Announcements</button>
+        <button id="toggle-admission" class="responsive-btn">Admission</button>
+      </div>
+    <nav id="campus-menu" style="display:none;">
+        <ul>
+            <li><a href="#" class="campus-link" data-tab="manila-campus">Manila Campus</a></li>
+            <li><a href="#" class="campus-link" data-tab="sta-cruz-campus">Sta. Cruz Campus</a></li>
+            <li><a href="#" class="campus-link" data-tab="quezon-city-campus">Quezon City Campus</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home" class="animate-on-scroll">
+            <h2>Home</h2>
+            <p>Welcome to the Philippine Women's University website!</p>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>The Philippine Women's University-CDCEC Sta. Cruz is an extension campus of PWU. The institution offers quality education to students in the Southern Luzon region, particularly inside Laguna. Located exactly in the municipality of Sta. Cruz, province of Laguna, this branch of the aforementioned institution offers accessible and quality academic programs that aim to provide the needs of the local community. The main objective of PWU-Sta. Cruz is to give rise to graduates that are fully equipped with knowledge, skills, and values that are vital to succeed in their chosen fields that they decided to pursue, and most importantly, to make a positive impact in society.</p>
+        </section>
+        <section id="mission-vision">
+            <h2>Mission and Vision</h2>
+            <div>
+                <h3>Mission</h3>
+                <p>To provide quality education that empowers individuals to achieve their full potential and contribute positively to society.</p>
+            </div>
+            <div>
+                <h3>Vision</h3>
+                <p>To be a globally recognized institution of learning, fostering innovation, leadership, and excellence in education.</p>
+            </div>
+        </section>
+        <section id="announcements" style="display:none; max-width:600px; margin:2rem auto; background:#fffbe7; border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.08); padding:1.5rem;">
+            <button class="responsive-btn" onclick="hideAnnouncements()" style="margin-bottom:1rem;">Back to Menu</button>
+            <h2>Announcements</h2>
+            <div>
+                <h3>Exam</h3>
+                <p>Midterm Exams will be held on <strong>October 15-17, 2025</strong>. Please check your schedule and prepare accordingly.</p>
+            </div>
+            <div>
+                <h3>Event</h3>
+                <p>School Foundation Day Celebration on <strong>November 10, 2025</strong>. Join us for fun activities and programs!</p>
+            </div>
+        </section>
+        <section id="admission" style="display:none; max-width:600px; margin:2rem auto; background:#fffbe7; border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.08); padding:1.5rem;">
+            <button class="responsive-btn" onclick="hideAdmission()" style="margin-bottom:1rem;">Back to Menu</button>
+            <h2>Admission Requirements</h2>
+            <h3>Senior High School</h3>
+            <ul>
+                <li>1” x 1” ID picture with Maroon or Red background (4 pcs.)</li>
+                <li>NSO/PSA Birth Certificate (Photocopy)</li>
+                <li>Long Brown Envelope (2 pcs.)</li>
+                <li>Original and two (2) Photocopies of the following:
+                    <ul>
+                        <li>Certificate of Good Moral Character</li>
+                        <li>Form-138</li>
+                        <li>Form-137</li>
+                        <li>ESC Voucher, if any (Student from Private Schools)</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>College</h3>
+            <ul>
+                <li>1” x 1” ID picture with Maroon or Red background (4 pcs.)</li>
+                <li>NSO/PSA Birth Certificate (2 photocopies)</li>
+                <li>Long Brown Envelope (2 pcs.)</li>
+                <li>Original and two (2) Photocopies of the following:
+                    <ul>
+                        <li>Certificate of Good Moral Character</li>
+                        <li>Form-138 Senior High School Card</li>
+                        <li>Form-137 Senior High School Permanent Record</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>For Transfer Students</h3>
+            <ul>
+                <li>Transfer Credential Certificate</li>
+                <li>Copy of Grades</li>
+                <li>Transcript of Records with Remarks: “Copy for PWU”</li>
+            </ul>
+        </section>
+        <div id="campus-tabs" style="margin-top:2rem; text-align:center;">
+            <button class="tab-button responsive-btn" data-tab="manila-campus">Manila Campus</button>
+            <button class="tab-button responsive-btn" data-tab="sta-cruz-campus">Sta. Cruz Campus</button>
+            <button class="tab-button responsive-btn" data-tab="quezon-city-campus">Quezon City Campus</button>
+        </div>
+        
+        <div id="manila-campus" class="tab-content">
+            <!-- ...Manila info... -->
+            <h3>Manila Campus</h3>
+            <p>
+                <strong>Address:</strong> 1743 Taft Avenue, Malate, Manila, Philippines<br>
+                <strong>Contact:</strong> (02) 8526-8421<br>
+                <strong>Email:</strong> info@pwu.edu.ph
+            </p>
+            <p>
+                The Manila Campus is the main campus of Philippine Women's University, offering a wide range of undergraduate and graduate programs in various fields. It is located in the heart of Manila and provides modern facilities and a vibrant campus life.
+            </p>
+        </div>
+        <div id="sta-cruz-campus" class="tab-content">
+            <h3>Sta. Cruz Campus</h3>
+            <p>
+                <strong>Address:</strong> M.H. del Pilar St., Sta. Cruz, Laguna, Santa Cruz, Philippines<br>
+                <strong>Contact:</strong> (049) 501 3997<br>
+                <strong>Email:</strong> pwumarketing.scl@gmail.com<br>
+                <strong>Website:</strong> <a href="https://pwu.edu.ph/cdcec/santacruz" target="_blank">pwu.edu.ph/cdcec/santacruz</a>
+            </p>
+            <p>
+                The Sta. Cruz Campus serves students in Southern Luzon, offering accessible and quality academic programs. The campus is committed to producing graduates equipped with knowledge, skills, and values for success and positive societal impact.
+            </p>
+        </div>
+        <div id="quezon-city-campus" class="tab-content">
+            <!-- ...QC info... -->
+            <h3>Quezon City Campus</h3>
+            <p>
+                <strong>Address:</strong> 123 Commonwealth Ave., Quezon City, Philippines<br>
+                <strong>Contact:</strong> (02) 9876-5432<br>
+                <strong>Email:</strong> qc@pwu.edu.ph
+            </p>
+            <p>
+                The Quezon City Campus offers specialized programs and a supportive learning environment for students in Metro Manila and nearby provinces. It features modern classrooms and dedicated faculty.
+            </p>
+        </div>
+        <section id="academic-calendar">
+            <h2>Academic Calendar</h2>
+            <table style="margin: 0 auto; border-collapse: collapse; width: 100%; max-width: 600px;">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border: 1px solid #ccc; padding: 8px;">June</td>
+                        <td style="border: 1px solid #ccc; padding: 8px;">Start of Classes</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ccc; padding: 8px;">October</td>
+                        <td style="border: 1px solid #ccc; padding: 8px;">Midterm Exams</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ccc; padding: 8px;">December</td>
+                        <td style="border: 1px solid #ccc; padding: 8px;">Christmas Break</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ccc; padding: 8px;">March</td>
+                        <td style="border: 1px solid #ccc; padding: 8px;">Final Exams</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ccc; padding: 8px;">April</td>
+                        <td style="border: 1px solid #ccc; padding: 8px;">Graduation</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <div id="strand-container">
+            <div id="strand-back-btn" style="margin-bottom:1rem;">
+                <button class="responsive-btn" onclick="hideStrandContainer()">Back to Menu</button>
+            </div>
+            <h2>Strands</h2>
+            <div id="strand-back-btn" style="display:none; margin-bottom:1rem;">
+                <button class="responsive-btn" onclick="hideStrandContainer()">Back to Menu</button>
+            </div>
+            <section id="abm">
+                <h3>ABM Strand</h3>
+                <p>The Accountancy, Business, and Management (ABM) Strand focuses on preparing students for business-related courses in college. It equips them with skills in accounting, management, and entrepreneurship.</p>
+                <h4>Senior High School Offered Courses:</h4>
+                <ul>
+                    <li>Business Administration</li>
+                    <li>Accountancy</li>
+                    <li>Marketing Management</li>
+                </ul>
+                <h4>College Offered Courses:</h4>
+                <ul>
+                    <li>Entrepreneurship</li>
+                    <li>Financial Management</li>
+                    <li>Human Resource Management</li>
+                </ul>
+            </section>
+            <section id="stem">
+                <h3>STEM Strand</h3>
+                <p>The Science, Technology, Engineering, and Mathematics (STEM) Strand is designed for students who are inclined toward science and mathematics. It prepares them for courses in engineering, medicine, and other technical fields.</p>
+                <h4>Senior High School Offered Courses:</h4>
+                <ul>
+                    <li>Engineering</li>
+                    <li>Medicine</li>
+                    <li>Information Technology</li>
+                </ul>
+                <h4>College Offered Courses:</h4>
+                <ul>
+                    <li>Computer Science</li>
+                    <li>Biology</li>
+                    <li>Civil Engineering</li>
+                </ul>
+            </section>
+            <section id="humss">
+                <h3>HUMSS Strand</h3>
+                <p>The Humanities and Social Sciences (HUMSS) Strand is for students interested in social sciences, literature, and education. It develops critical thinking and communication skills.</p>
+                <h4>Senior High School Offered Courses:</h4>
+                <ul>
+                    <li>Psychology</li>
+                    <li>Education</li>
+                    <li>Political Science</li>
+                </ul>
+                <h4>College Offered Courses:</h4>
+                <ul>
+                    <li>Mass Communication</li>
+                    <li>Philosophy</li>
+                    <li>Social Work</li>
+                </ul>
+            </section>
+            <section id="gas">
+                <h3>GAS Strand</h3>
+                <p>The General Academic Strand (GAS) is for students who are undecided about their future career paths. It provides a balanced mix of subjects from other strands.</p>
+                <h4>Senior High School Offered Courses:</h4>
+                <ul>
+                    <li>General Studies</li>
+                    <li>Interdisciplinary Studies</li>
+                    <li>Customizable Electives</li>
+                </ul>
+                <h4>College Offered Courses:</h4>
+                <ul>
+                    <li>General Education</li>
+                    <li>Interdisciplinary Studies</li>
+                    <li>Customizable Programs</li>
+                </ul>
+            </section>
+            <section id="tvl">
+                <h3>TVL Strand</h3>
+                <p>The Technical-Vocational-Livelihood (TVL) Strand offers practical skills and training for students who want to pursue technical or vocational careers after high school.</p>
+                <h4>Senior High School Offered Courses:</h4>
+                <ul>
+                    <li>Automotive Servicing</li>
+                    <li>Cookery</li>
+                    <li>Electrical Installation and Maintenance</li>
+                </ul>
+                <h4>College Offered Courses:</h4>
+                <ul>
+                    <li>Hotel and Restaurant Management</li>
+                    <li>Tourism Management</li>
+                    <li>Industrial Technology</li>
+                </ul>
+            </section>
+        </div>
+        <section id="school-facilities" style="max-width:600px;margin:2rem auto;background:#f9f9f9;padding:1.5rem;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.08);animation:fadeIn 0.8s;">
+            <h2>School Facilities</h2>
+            <ul style="list-style:none;padding:0;">
+                <li style="margin-bottom:0.8rem;">
+                    <span style="font-size:1.3em;vertical-align:middle;">❄️</span>
+                    <strong>Air-conditioned Rooms</strong>
+                </li>
+                <li style="margin-bottom:0.8rem;">
+                    <span style="font-size:1.3em;vertical-align:middle;">📺</span>
+                    <strong>TV in Classrooms</strong>
+                </li>
+                <li style="margin-bottom:0.8rem;">
+                    <span style="font-size:1.3em;vertical-align:middle;">📹</span>
+                    <strong>CCTV Security</strong>
+                </li>
+                <li style="margin-bottom:0.8rem;">
+                    <span style="font-size:1.3em;vertical-align:middle;">📶</span>
+                    <strong>WiFi Zone</strong>
+                </li>
+            </ul>
+        </section>
+        <section id="contact" style="display:none; max-width:600px; margin:2rem auto; background:#fffbe7; border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.08); padding:1.5rem;">
+            <button class="responsive-btn" onclick="hideContactSection()" style="margin-bottom:1rem;">Back to Menu</button>
+            <h2>Contact</h2>
+            <p>
+                <strong>PWU Sta. Cruz Branch</strong><br>
+                <strong>Address:</strong> Brgy. Bubukal, Sta. Cruz, Laguna, Philippines<br>
+                <strong>Contact:</strong> (049) 501-1111<br>
+                <strong>Email:</strong> stacruz@pwu.edu.ph
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Philippine Women's University</p>
+    </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Tab switching for campus (buttons and menu links)
+    function showCampusTab(tabId) {
+        var tabButtons = document.querySelectorAll('#campus-tabs .tab-button');
+        var tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(function(content) {
+            content.classList.remove('active');
+            // Remove animation to allow re-trigger
+            content.style.animation = 'none';
+            // Force reflow to reset animation
+            void content.offsetWidth;
+        });
+        tabButtons.forEach(function(btn) {
+            btn.classList.remove('active');
+        });
+        var tab = document.getElementById(tabId);
+        if (tab) {
+            tab.classList.add('active');
+            // Re-apply animation
+            tab.style.animation = 'fadeIn 1.2s';
+        }
+        // Activate the corresponding button if exists
+        tabButtons.forEach(function(btn) {
+            if (btn.getAttribute('data-tab') === tabId) btn.classList.add('active');
+        });
+    }
+
+    // Button click
+    document.querySelectorAll('#campus-tabs .tab-button').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var tabId = this.getAttribute('data-tab');
+            showCampusTab(tabId);
+        });
+    });
+
+    // Campus menu link click
+    document.querySelectorAll('.campus-link').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var tabId = this.getAttribute('data-tab');
+            showCampusTab(tabId);
+            // Optionally, close the campus menu after selection
+            var campusMenu = document.getElementById('campus-menu');
+            if (campusMenu) campusMenu.style.display = 'none';
+            // Scroll to content on mobile
+            var tab = document.getElementById(tabId);
+            if (tab) tab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // Hide all campus contents by default
+    document.querySelectorAll('.tab-content').forEach(function(content) {
+        content.classList.remove('active');
+    });
+
+    // Optionally, show the first campus by default on desktop only
+    if (window.innerWidth > 700) {
+        var firstTabBtn = document.querySelector('#campus-tabs .tab-button');
+        if (firstTabBtn) {
+            var tabId = firstTabBtn.getAttribute('data-tab');
+            showCampusTab(tabId);
+        }
+    }
+
+    // Strand menu toggle (works for click/tap on all devices)
+    var strandMenuBtn = document.getElementById('toggle-strand-menu');
+    var strandContainer = document.getElementById('strand-container');
+    var strandBackBtn = document.getElementById('strand-back-btn');
+    function showStrandContainer() {
+        strandContainer.classList.add('show');
+        strandContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function hideStrandContainer() {
+        strandContainer.classList.remove('show');
+        document.getElementById('menu-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    window.hideStrandContainer = hideStrandContainer;
+
+    if (strandMenuBtn && strandContainer) {
+        strandMenuBtn.addEventListener('click', showStrandContainer);
+    }
+
+    // On mobile, ensure #strand-container is hidden by default
+    if (window.innerWidth <= 700) {
+        strandContainer.classList.remove('show');
+        if (strandBackBtn) strandBackBtn.style.display = 'none';
+    }
+
+    // Campus menu toggle
+    var campusMenuBtn = document.getElementById('toggle-campus-menu');
+    var campusMenu = document.getElementById('campus-menu');
+    if (campusMenuBtn && campusMenu) {
+        campusMenuBtn.onclick = function () {
+            if (campusMenu.style.display === 'block') {
+                campusMenu.style.display = 'none';
+            } else {
+                campusMenu.style.display = 'block';
+            }
+        };
+    }
+
+    // Announcements toggle
+    var announcementsBtn = document.getElementById('toggle-announcements');
+    var announcementsSection = document.getElementById('announcements');
+    if (announcementsBtn && announcementsSection) {
+        announcementsBtn.onclick = showAnnouncements;
+    }
+
+    // Hide announcements by default on load
+    var announcementsSection = document.getElementById('announcements');
+    if (announcementsSection) announcementsSection.style.display = 'none';
+
+    // Edit campus details (simple prompt, works everywhere)
+    window.editCampusDetails = function(contactId, addressId) {
+        var password = prompt("Enter the admin password to edit:");
+        if (password !== "admin123") {
+            alert("You are not authorized to edit this content.");
+            return;
+        }
+        var contactElement = document.getElementById(contactId);
+        var addressElement = document.getElementById(addressId);
+        if (contactElement) {
+            var newContact = prompt("Edit Contact:", contactElement.textContent);
+            if (newContact !== null) contactElement.textContent = newContact;
+        } else {
+            alert("Contact element not found.");
+        }
+        if (addressElement) {
+            var newAddress = prompt("Edit Address:", addressElement.textContent);
+            if (newAddress !== null) addressElement.textContent = newAddress;
+        } else {
+            alert("Address element not found.");
+        }
+    };
+
+    // Contact section toggle and scroll
+    function showContactSection() {
+        var contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.style.display = 'block';
+            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    function hideContactSection() {
+        var contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.style.display = 'none';
+        }
+        // Scroll to menu container or top
+        var menu = document.getElementById('menu-container');
+        if (menu) {
+            menu.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+    window.showContactSection = showContactSection;
+    window.hideContactSection = hideContactSection;
+
+    // Hide contact section by default on load
+    var contactSection = document.getElementById('contact');
+    if (contactSection) contactSection.style.display = 'none';
+
+    // Announcements functions
+    function showAnnouncements() {
+        var announcementsSection = document.getElementById('announcements');
+        if (announcementsSection) {
+            announcementsSection.style.display = 'block';
+            // Remove and re-add fade-in to retrigger animation
+            announcementsSection.classList.remove('fade-in');
+            void announcementsSection.offsetWidth;
+            announcementsSection.classList.add('fade-in');
+            announcementsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    function hideAnnouncements() {
+        var announcementsSection = document.getElementById('announcements');
+        if (announcementsSection) {
+            announcementsSection.style.display = 'none';
+            announcementsSection.classList.remove('fade-in');
+        }
+        var menu = document.getElementById('menu-container');
+        if (menu) {
+            menu.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+    window.showAnnouncements = showAnnouncements;
+    window.hideAnnouncements = hideAnnouncements;
+
+    // Admission section toggle and scroll
+    function showAdmission() {
+        var admissionSection = document.getElementById('admission');
+        if (admissionSection) {
+            admissionSection.style.display = 'block';
+            // Remove and re-add fade-in to retrigger animation
+            admissionSection.classList.remove('fade-in');
+            void admissionSection.offsetWidth;
+            admissionSection.classList.add('fade-in');
+            admissionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    function hideAdmission() {
+        var admissionSection = document.getElementById('admission');
+        if (admissionSection) {
+            admissionSection.style.display = 'none';
+            admissionSection.classList.remove('fade-in');
+        }
+        var menu = document.getElementById('menu-container');
+        if (menu) {
+            menu.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+    window.showAdmission = showAdmission;
+    window.hideAdmission = hideAdmission;
+
+    // Admission button click
+    var admissionBtn = document.getElementById('toggle-admission');
+    if (admissionBtn) {
+        admissionBtn.onclick = showAdmission;
+    }
+
+    // Hide admission by default on load
+    var admissionSection = document.getElementById('admission');
+    if (admissionSection) admissionSection.style.display = 'none';
+});
+</script>
+</body>
+</html>
